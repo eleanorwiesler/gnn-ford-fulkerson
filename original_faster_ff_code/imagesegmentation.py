@@ -194,7 +194,9 @@ if __name__ == "__main__":
                 loadseed=seeds
             )
             if args.save_graphs:
-                nx_graph = convert_to_networkx(graph, image, SOURCE, SINK)
+                gray_image = cv2.imread(os.path.join(args.folder, file_name), cv2.IMREAD_GRAYSCALE)
+                gray_image = cv2.resize(gray_image, (args.size, args.size))
+                nx_graph = convert_to_networkx(graph, gray_image, SOURCE, SINK)
                 gname = file_name.replace(".jpg", "_graph.gpickle")
                 out_path = os.path.join(args.folder, args.group + "_graphs", gname)
                 os.makedirs(os.path.dirname(out_path), exist_ok=True)
