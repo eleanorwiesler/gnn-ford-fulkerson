@@ -9,7 +9,7 @@ The functions used to:
     - perform imagesegmentation on an image by calling the other funcs above and the ford-fulkerson subroutine from augmentingPath.py
 One can run this file on a chosen image to choose a set of seeds, and then apply those seeds to the whole sequence.
 """
-
+import networkx as nx
 from __future__ import division
 import cv2
 import numpy as np
@@ -308,6 +308,14 @@ def parseArgs():
     parser.add_argument("--loadseed", "-l", default="yes")
     return parser.parse_args()
 
+
+def convert_to_networkx(graph_dict):
+    G = nx.DiGraph()
+    for u in graph_dict:
+        for v, cap in graph_dict[u].items():
+            if cap > 0:
+                G.add_edge(u, v, capacity=cap)
+    return G
 
 if __name__ == "__main__":
 
