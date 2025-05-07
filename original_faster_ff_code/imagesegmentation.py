@@ -11,7 +11,7 @@ from math import exp, pow
 from collections import defaultdict
 import networkx as nx
 from augmentingPath import augmentingPath
-
+import pickle
 graphCutAlgo = {"ap": augmentingPath}
 SIGMA = 60
 OBJCOLOR, BKGCOLOR = (0, 0, 255), (0, 255, 0)
@@ -200,7 +200,8 @@ if __name__ == "__main__":
                 gname = file_name.replace(".jpg", "_graph.gpickle")
                 out_path = os.path.join(args.folder, args.group + "_graphs", gname)
                 os.makedirs(os.path.dirname(out_path), exist_ok=True)
-                nx.write_gpickle(nx_graph, out_path)
+                with open(out_path, "wb") as f:
+                    pickle.dump(nx_graph, f)
                 print(f"[✓] Saved NetworkX graph to: {out_path}")
         else:
             print(f"[✗] Missing file: {image_path}")
