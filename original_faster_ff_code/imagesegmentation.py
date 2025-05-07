@@ -205,7 +205,7 @@ if __name__ == "__main__":
 
 '''
 to run:
-python imagesegmentation.py \
+python original_faster_ff_code/imagesegmentation.py \
   --folder data_pipeline/flowers_segmentation/train \
   --csv data_pipeline/flowers_segmentation/train/_polygons.csv \
   --group flowers \

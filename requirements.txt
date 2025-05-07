@@ -2,12 +2,16 @@
 networkx>=2.6
 opencv-python>=4.5
 numpy>=1.20
-# PyTorch (adjust version and CUDA as needed)
+pandas>=1.2
+matplotlib>=3.3
+
+# PyTorch (adjust versions if using GPU/CUDA)
 torch>=1.10.0
 torchvision>=0.11.0
-# PyTorch Geometric and its required libs
-torch-geometric
-torch-scatter
-torch-sparse
-torch-cluster
-torch-spline-conv
+
+# PyTorch Geometric + dependencies (CPU versions)
+#torch-scatter
+#torch-sparse
+#torch-cluster
+#torch-spline-conv
+#torch-geometric
