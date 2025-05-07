@@ -328,7 +328,7 @@ if __name__ == "__main__":
         args.algo,
         args.loadseed
     )
-
+# comments xyz
     print(min_cut)
 
 
